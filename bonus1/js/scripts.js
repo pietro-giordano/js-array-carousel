@@ -35,17 +35,19 @@ next.addEventListener('click',
 
             console.log('Cliccato su next');
             allSlides[current].classList.remove('selected');
-            current ++;
-            allSlides[current].classList.add('selected');
             
             if (current == allSlides.length - 1) {
                   
-                  next.classList.add('hidden');
+                  current = 0;
+                  allSlides[current].classList.add('selected');
       
+            } else {
+
+                  current++;
+                  allSlides[current].classList.add('selected');
+
             }
       
-            previous.classList.remove('hidden');
-
       }
 
 );
@@ -56,16 +58,18 @@ previous.addEventListener('click',
 
             console.log('Cliccato su previous');
             allSlides[current].classList.remove('selected');
-            current--;
-            allSlides[current].classList.add('selected');
 
             if (current == 0) {
 
-                  previous.classList.add('hidden');
+                  current = allSlides.length - 1;
+                  allSlides[current].classList.add('selected');
+
+            } else {
+
+                  current--;
+                  allSlides[current].classList.add('selected');
 
             }
-
-            next.classList.remove('hidden');
 
       }
 
