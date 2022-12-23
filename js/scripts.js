@@ -12,12 +12,61 @@ const images = [
       "img/05.webp"
 ];
 
-const carouselSlides = document.querySelector('.carousel');
+const carouselSlide = document.querySelector('.carousel');
 
 for (let i = 0; i < images.length; i++) {
 
       console.log(images[i]);
-
-      carouselSlides.innerHTML += `<div class="slide"><img src="${images[i]}"></div>`;
+      carouselSlide.innerHTML += `<div class="slide"><img src="${images[i]}"></div>`;
 
 }
+
+const allSlides = document.querySelectorAll('.slide');
+console.log(allSlides);
+allSlides[0].classList.add('selected');
+
+const previous = document.querySelector('.previous');
+const next = document.querySelector('.next');
+let current = 0;
+
+next.addEventListener('click',
+
+      function () {
+
+            console.log('Cliccato su next');
+            allSlides[current].classList.remove('selected');
+            current ++;
+            allSlides[current].classList.add('selected');
+            
+            if (current == allSlides.length - 1) {
+                  
+                  next.classList.add('hidden');
+      
+            }
+      
+            previous.classList.remove('hidden');
+
+      }
+
+);
+
+previous.addEventListener('click',
+
+      function () {
+
+            console.log('Cliccato su previous');
+            allSlides[current].classList.remove('selected');
+            current--;
+            allSlides[current].classList.add('selected');
+
+            if (current == 0) {
+
+                  previous.classList.add('hidden');
+
+            }
+
+            next.classList.remove('hidden');
+
+      }
+
+);
