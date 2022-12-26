@@ -16,13 +16,13 @@ main {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 50%;
+      width: 70%;
       height: 50vh;
       background-color: aquamarine;
 }
 
 .slide {
-      width: 100%;
+      width: 80%;
       height: 100%;
       display: none;
 }
@@ -31,7 +31,33 @@ main {
       display: block;
 }
 
-.slide img {
+.thumbnails {
+      width: 20%;
+      height: 100%;
+      float: right;
+      position: relative;
+}
+
+.t-slide {
+      /* background-color: red; */
+      width: 100%;
+      height: 20%;
+}
+
+.t-slide.t-selected {
+      border: 3px inset white;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0);
+}
+
+.t-over {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.6);
+}
+
+.slide img, .t-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -43,7 +69,8 @@ main {
       border-radius: 50%;
       background-color: rgba(255, 255, 255, 0.7);
       color: black;
-      position: absolute;      
+      position: absolute;
+      z-index: 2;      
       left: 50%;
       transform: translateX(-50%);
       text-align: center;

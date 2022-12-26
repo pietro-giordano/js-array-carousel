@@ -13,17 +13,23 @@ const images = [
 ];
 
 const carouselSlide = document.querySelector('.carousel');
+const thumbSlide = document.querySelector('.thumbnails');
 
 for (let i = 0; i < images.length; i++) {
 
       console.log(images[i]);
       carouselSlide.innerHTML += `<div class="slide"><img src="${images[i]}"></div>`;
+      thumbSlide.innerHTML += `<div class="t-slide"><img src="${images[i]}"></div>`;
 
 }
 
 const allSlides = document.querySelectorAll('.slide');
 console.log(allSlides);
 allSlides[0].classList.add('selected');
+
+const allThumb = document.querySelectorAll('.t-slide');
+console.log(allThumb);
+allThumb[0].classList.add('t-selected');
 
 const previous = document.querySelector('.previous');
 const next = document.querySelector('.next');
@@ -35,17 +41,19 @@ next.addEventListener('click',
 
             console.log('Cliccato su next');
             allSlides[current].classList.remove('selected');
-            current ++;
-            allSlides[current].classList.add('selected');
             
             if (current == allSlides.length - 1) {
                   
-                  next.classList.add('hidden');
+                  current = 0;
+                  allSlides[current].classList.add('selected');
       
+            } else {
+
+                  current++;
+                  allSlides[current].classList.add('selected');
+
             }
       
-            previous.classList.remove('hidden');
-
       }
 
 );
@@ -56,16 +64,18 @@ previous.addEventListener('click',
 
             console.log('Cliccato su previous');
             allSlides[current].classList.remove('selected');
-            current--;
-            allSlides[current].classList.add('selected');
 
             if (current == 0) {
 
-                  previous.classList.add('hidden');
+                  current = allSlides.length - 1;
+                  allSlides[current].classList.add('selected');
+
+            } else {
+
+                  current--;
+                  allSlides[current].classList.add('selected');
 
             }
-
-            next.classList.remove('hidden');
 
       }
 
