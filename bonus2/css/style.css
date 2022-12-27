@@ -18,7 +18,6 @@ main {
       transform: translate(-50%, -50%);
       width: 70%;
       height: 50vh;
-      background-color: aquamarine;
 }
 
 .slide {
@@ -39,22 +38,26 @@ main {
 }
 
 .t-slide {
-      /* background-color: red; */
       width: 100%;
       height: 20%;
+      position: relative;
 }
 
 .t-slide.t-selected {
       border: 3px inset white;
-      position: absolute;
-      background-color: rgba(0, 0, 0, 0);
 }
 
 .t-over {
       width: 100%;
       height: 100%;
       position: absolute;
+      top: 0;
+      left: 0;
       background-color: rgba(0, 0, 0, 0.6);
+}
+
+.t-over.t-none {
+      display: none;
 }
 
 .slide img, .t-slide img {
